@@ -33,6 +33,7 @@
     "@nestjs/common": "^6.8.3",
     "@nestjs/core": "^6.8.3",
     "@nestjs/platform-express": "^6.8.3",
+    "@nestjs/serve-static": "^2.1.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.4"
   },
