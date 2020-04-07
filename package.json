@@ -6,6 +6,7 @@
     "ng": "ng",
     "nx": "nx",
     "start": "ng serve",
+    "start:dev": "concurrently -k \"ng serve\" \"ng serve api\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
