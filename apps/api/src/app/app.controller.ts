@@ -4,7 +4,7 @@ import { Message } from '@angular-nest-herokuapp/api-interfaces';
 
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('api')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 

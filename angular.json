@@ -150,6 +150,10 @@
               "inspect": false,
               "fileReplacements": [
                 {
+                  "replace": "apps/api/src/main.ts",
+                  "with": "apps/api/src/main.prod.ts"
+                },
+                {
                   "replace": "apps/api/src/environments/environment.ts",
                   "with": "apps/api/src/environments/environment.prod.ts"
                 }
