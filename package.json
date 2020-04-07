@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "nx": "nx",
-    "start": "ng serve",
+    "start": "node dist/apps/api/main.js",
     "start:dev": "concurrently -k \"ng serve\" \"ng serve api\"",
     "build": "ng build --prod && ng build api --prod",
     "test": "ng test",
