@@ -1,0 +1,20 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "angularNestHerokuapp",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "angular-nest-herokuapp",
+      "kebab-case"
+    ]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
+  }
+}

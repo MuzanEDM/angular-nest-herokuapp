@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "projects": {
+    "angular-nest-herokuapp": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/angular-nest-herokuapp",
+      "sourceRoot": "apps/angular-nest-herokuapp/src",
+      "prefix": "angular-nest-herokuapp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-nest-herokuapp",
+            "index": "apps/angular-nest-herokuapp/src/index.html",
+            "main": "apps/angular-nest-herokuapp/src/main.ts",
+            "polyfills": "apps/angular-nest-herokuapp/src/polyfills.ts",
+            "tsConfig": "apps/angular-nest-herokuapp/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/angular-nest-herokuapp/src/favicon.ico",
+              "apps/angular-nest-herokuapp/src/assets"
+            ],
+            "styles": ["apps/angular-nest-herokuapp/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-nest-herokuapp/src/environments/environment.ts",
+                  "with": "apps/angular-nest-herokuapp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-nest-herokuapp:build",
+            "proxyConfig": "apps/angular-nest-herokuapp/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-nest-herokuapp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-nest-herokuapp:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angular-nest-herokuapp/tsconfig.app.json",
+              "apps/angular-nest-herokuapp/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/angular-nest-herokuapp/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/angular-nest-herokuapp/jest.config.js",
+            "tsConfig": "apps/angular-nest-herokuapp/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/angular-nest-herokuapp/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "angular-nest-herokuapp-e2e": {
+      "root": "apps/angular-nest-herokuapp-e2e",
+      "sourceRoot": "apps/angular-nest-herokuapp-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/angular-nest-herokuapp-e2e/cypress.json",
+            "tsConfig": "apps/angular-nest-herokuapp-e2e/tsconfig.e2e.json",
+            "devServerTarget": "angular-nest-herokuapp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-nest-herokuapp:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/angular-nest-herokuapp-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/angular-nest-herokuapp-e2e/**"
+            ]
+          }
+        }
+      }
+    },
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "prefix": "api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/api/tsconfig.app.json",
+              "apps/api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/api/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "tsConfig": "apps/api/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-interfaces": {
+      "root": "libs/api-interfaces",
+      "sourceRoot": "libs/api-interfaces/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/api-interfaces/tsconfig.lib.json",
+              "libs/api-interfaces/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api-interfaces/jest.config.js",
+            "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "angular-nest-herokuapp"
+}
