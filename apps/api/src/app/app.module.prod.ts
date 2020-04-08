@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
 import { AppModule } from './app.module';
+import { ForwardedProtoMiddleware } from './middlewares/forwarded-proto.middleware';
 
 @Module({
   imports: [
@@ -12,4 +13,10 @@ import { AppModule } from './app.module';
     AppModule
   ]
 })
-export class AppModuleProd {}
+export class AppModuleProd implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(ForwardedProtoMiddleware)
+      .forRoutes('*');
+  }
+}
