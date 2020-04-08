@@ -18,7 +18,17 @@ jobs:
         node-version: 12.x
     - run: yarn
     - run: yarn nx workspace-lint
-    - run: yarn affected:lint
-    - run: yarn format:check
-    - run: yarn affected:test
-    - run: yarn affected:build --prod
+    - name: Run validate
+      shell: bash
+      run: |
+        if [[ $GITHUB_BASE_REF ]]
+        then
+          export NX_BASE=remotes/origin/$GITHUB_BASE_REF
+        else
+          export NX_BASE=$(git rev-parse HEAD~1)
+        fi
+        echo "Base => $NX_BASE"
+        yarn format:check --base=$NX_BASE
+        yarn affected:lint --base=$NX_BASE
+        yarn affected:test --base=$NX_BASE
+        yarn affected:build --base=$NX_BASE --prod
