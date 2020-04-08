@@ -13,7 +13,7 @@
       "prefix": "angular-nest-herokuapp",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/apps/angular-nest-herokuapp",
             "index": "apps/angular-nest-herokuapp/src/index.html",
@@ -26,7 +26,10 @@
               "apps/angular-nest-herokuapp/src/assets"
             ],
             "styles": ["apps/angular-nest-herokuapp/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "apps/angular-nest-herokuapp/tailwind-webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
@@ -60,10 +63,13 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "angular-nest-herokuapp:build",
-            "proxyConfig": "apps/angular-nest-herokuapp/proxy.conf.json"
+            "proxyConfig": "apps/angular-nest-herokuapp/proxy.conf.json",
+            "customWebpackConfig": {
+              "path": "apps/angular-nest-herokuapp/tailwind-webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
