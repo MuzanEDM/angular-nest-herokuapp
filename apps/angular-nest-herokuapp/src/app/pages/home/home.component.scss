@@ -1,23 +1,139 @@
-/*
- * Remove template code below
- */
-:host {
-  display: block;
-  font-family: sans-serif;
-  max-width: 600px;
-  margin: 50px auto;
-  text-align: center;
+div.container {
+  @apply py-12;
+  @apply bg-white;
+
+  div.container-wrapper {
+    @apply max-w-screen-xl mx-auto px-4;
+
+    div.header {
+      p.topic {
+        @apply text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase;
+      }
+      h3.title {
+        @apply mt-2;
+        @apply text-3xl leading-8 font-bold tracking-tight text-gray-900;
+      }
+      p.description {
+        @apply mt-4;
+        @apply max-w-2xl text-xl leading-7 text-gray-500;
+
+        a {
+          @apply font-bold text-indigo-600 transition duration-150 ease-in-out;
+
+          &:hover {
+            @apply text-indigo-500 underline;
+          }
+        }
+      }
+    }
+    div.features {
+      @apply mt-10;
+
+      ul.features-list {
+        > li {
+          @apply mt-10;
+
+          div.feature {
+            @apply flex;
+
+            div.feature-icon {
+              @apply flex-shrink-0;
+
+              div.feature-icon-container {
+                @apply flex items-center justify-center;
+                @apply h-12 w-12;
+                @apply rounded-md text-white;
+
+                svg {
+                  @apply h-10 w-10;
+                }
+              }
+            }
+            div.feature-content {
+              @apply ml-4;
+
+              h5.title {
+                @apply text-lg leading-6 font-medium text-gray-900;
+              }
+              p.description {
+                @apply mt-2;
+                @apply text-base leading-6 text-gray-500;
+
+                a {
+                  @apply font-bold text-indigo-600 transition duration-150 ease-in-out;
+
+                  &:hover {
+                    @apply text-indigo-500 underline;
+                  }
+                }
+              }
+            }
+            &.feature-nx {
+              div.feature-icon {
+                div.feature-icon-container {
+                  background: #143055;
+                }
+              }
+            }
+            &.feature-githubactions {
+              div.feature-icon {
+                div.feature-icon-container {
+                  background: #1f84f7;
+                }
+              }
+            }
+          }
+        }
+        > li:first-child {
+          @apply mt-0;
+        }
+      }
+    }
+  }
 }
 
-h1 {
-  font-size: 24px;
+@screen sm {
+  div.container {
+    div.container-wrapper {
+      @apply px-6;
+
+      div.header {
+        h3.title {
+          @apply text-4xl leading-10;
+        }
+      }
+    }
+  }
 }
 
-h2 {
-  font-size: 20px;
-  margin: 40px 0;
+@screen md {
+  div.container {
+    div.container-wrapper {
+      div.features {
+        ul.features-list {
+          @apply grid grid-cols-2 col-gap-8 row-gap-10;
+
+          > li {
+            @apply mt-0;
+          }
+        }
+      }
+    }
+  }
 }
 
-img {
-  width: 100%
+@screen lg {
+  div.container {
+    div.container-wrapper {
+      @apply px-8;
+
+      div.header {
+        @apply text-center;
+
+        p.description {
+          @apply mx-auto;
+        }
+      }
+    }
+  }
 }
