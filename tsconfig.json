@@ -18,6 +18,12 @@
     "paths": {
       "@angular-nest-herokuapp/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
+      ],
+      "@angular-nest-herokuapp/angular-nest-herokuapp-client": [
+        "libs/angular-nest-herokuapp-client/src/index.ts"
+      ],
+      "@angular-nest-herokuapp/angular-nest-herokuapp-client/*": [
+        "libs/angular-nest-herokuapp-client/src/lib/*"
       ]
     }
   },

@@ -1,0 +1,63 @@
+:host {
+  @apply block bg-white;
+}
+.container {
+  @apply max-w-screen-xl mx-auto py-12 px-4;
+
+  .socials {
+    @apply flex justify-center;
+
+    > a {
+      @apply ml-6 text-gray-400;
+
+      &:first-child {
+        @apply ml-0;
+      }
+      &:hover {
+        @apply text-gray-500;
+      }
+      span {
+        @apply sr-only;
+      }
+      svg {
+        @apply h-6 w-6;
+      }
+    }
+  }
+  .copy {
+    @apply mt-8;
+
+    > p {
+      @apply text-center text-base leading-6 text-gray-400;
+
+      a {
+        @apply underline text-gray-500;
+      }
+    }
+  }
+}
+
+@screen sm {
+  .container {
+    @apply px-6;
+  }
+}
+
+@screen md {
+  .container {
+    @apply flex items-center justify-between;
+
+    .socials {
+      @apply order-2;
+    }
+    .copy {
+      @apply mt-0 order-1;
+    }
+  }
+}
+
+@screen lg {
+  .container {
+    @apply px-8;
+  }
+}

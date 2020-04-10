@@ -1,6 +1,6 @@
 // Top-level class that is used between both the horizontal
 // and vertical navigation menus.
-.route-links {
+div.route-links {
   > a {
     @apply mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300;
 
@@ -32,12 +32,16 @@ span.guest-image {
 }
 
 :host {
-  @apply block bg-gray-100 min-h-screen;
+  @apply block;
+
+  .fullscreen-container {
+    @apply bg-gray-100 min-h-screen;
+  }
 }
 div.header {
   @apply bg-gray-800 pb-32;
 
-  nav.header-nav {
+  nav {
     @apply bg-gray-800;
 
     div.nav-horizontal {
@@ -201,25 +205,25 @@ div.header {
       }
     }
   }
-  header.title {
+  header {
     @apply py-10;
 
-    div.title-padding {
+    > div {
       @apply max-w-7xl mx-auto px-4;
 
-      h1 {
+      > h1 {
         @apply text-3xl leading-9 font-bold text-white;
       }
     }
   }
 }
-main.route {
+main {
   @apply -mt-32;
 
-  div.route-background {
+  > div {
     @apply max-w-7xl mx-auto pb-12 px-4;
 
-    div.route-foreground {
+    > div {
       @apply bg-white rounded-lg shadow px-5 py-6;
     }
   }
@@ -227,7 +231,7 @@ main.route {
 
 @screen sm {
   div.header {
-    nav.header-nav {
+    nav {
       div.nav-horizontal {
         @apply px-6;
 
@@ -243,17 +247,17 @@ main.route {
         }
       }
     }
-    header.title {
-      div.title-padding {
+    header {
+      > div {
         @apply px-6;
       }
     }
   }
-  main.route {
-    div.route-background {
+  main {
+    > div {
       @apply px-6;
 
-      div.route-foreground {
+      > div {
         @apply px-6;
       }
     }
@@ -262,7 +266,7 @@ main.route {
 
 @screen md {
   div.header {
-    nav.header-nav {
+    nav {
       div.nav-horizontal {
         div.horizontal-wrapper {
           div.horizontal-container {
@@ -293,19 +297,19 @@ main.route {
 
 @screen lg {
   div.header {
-    nav.header-nav {
+    nav {
       div.nav-horizontal {
         @apply px-8;
       }
     }
-    header.title {
-      div.title-padding {
+    header {
+      > div {
         @apply px-8;
       }
     }
   }
-  main.route {
-    div.route-background {
+  main {
+    > div {
       @apply px-8;
     }
   }

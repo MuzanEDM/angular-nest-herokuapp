@@ -1,201 +1,209 @@
-<div class="header">
-  <nav class="header-nav">
-    <div class="nav-horizontal">
-      <div class="horizontal-wrapper">
-        <div class="horizontal-container">
-          <div class="horizontal-nav">
-            <div class="logo">
-              <img
-                src="/assets/img/logos/workflow-mark-on-dark.svg"
-                alt="Workflow logo"
-              />
-            </div>
-            <div class="options">
-              <div class="options-container route-links">
-                <a routerLink="/home" routerLinkActive="active">Home</a>
-                <a routerLink="/team" routerLinkActive="active">Team</a>
-                <a routerLink="/projects" routerLinkActive="active">Projects</a>
-                <a routerLink="/calendar" routerLinkActive="active">Calendar</a>
-                <a routerLink="/reports" routerLinkActive="active">Reports</a>
+<div class="fullscreen-container">
+  <div class="header">
+    <nav>
+      <div class="nav-horizontal">
+        <div class="horizontal-wrapper">
+          <div class="horizontal-container">
+            <div class="horizontal-nav">
+              <div class="logo">
+                <img
+                  src="/assets/img/logos/workflow-mark-on-dark.svg"
+                  alt="Workflow logo"
+                />
+              </div>
+              <div class="options">
+                <div class="options-container route-links">
+                  <a routerLink="/home" routerLinkActive="active">Home</a>
+                  <a routerLink="/team" routerLinkActive="active">Team</a>
+                  <a routerLink="/projects" routerLinkActive="active"
+                    >Projects</a
+                  >
+                  <a routerLink="/calendar" routerLinkActive="active"
+                    >Calendar</a
+                  >
+                  <a routerLink="/reports" routerLinkActive="active">Reports</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="horizontal-user">
-            <div class="horizontal-user-container">
-              <button class="notifications" aria-label="Notifications">
-                <svg stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                  />
-                </svg>
-              </button>
-              <div class="user" #horizontalUserPopout>
-                <div class="profile-photo">
-                  <button
-                    id="user-menu"
-                    aria-label="User menu"
-                    aria-haspopup="true"
-                    (click)="toggleHorizontalUserPopout()"
-                    [attr.aria-expanded]="openedHorizontalUserPopout"
-                  >
-                    <ng-container *ngIf="userImage; else GuestImage">
-                      <img
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
-                    </ng-container>
-                    <ng-template #GuestImage>
-                      <span class="guest-image">
-                        <span class="guest-text">?</span>
-                      </span>
-                    </ng-template>
-                  </button>
-                </div>
-                <!-- TODO: x-transition from Alpine still needs to be ported to the user-options below. -->
-                <div class="user-options" *ngIf="openedHorizontalUserPopout">
-                  <div class="options-container">
-                    <a
-                      routerLink="/profile"
-                      routerLinkActive="active"
-                      (click)="handleNavMenuClick()"
-                      >Your Profile</a
+            <div class="horizontal-user">
+              <div class="horizontal-user-container">
+                <button class="notifications" aria-label="Notifications">
+                  <svg stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                    />
+                  </svg>
+                </button>
+                <div class="user" #horizontalUserPopout>
+                  <div class="profile-photo">
+                    <button
+                      id="user-menu"
+                      aria-label="User menu"
+                      aria-haspopup="true"
+                      (click)="toggleHorizontalUserPopout()"
+                      [attr.aria-expanded]="openedHorizontalUserPopout"
                     >
-                    <a
-                      routerLink="/settings"
-                      routerLinkActive="active"
-                      (click)="handleNavMenuClick()"
-                      >Settings</a
-                    >
-                    <a routerLink="/" (click)="handleNavMenuClick()"
-                      >Sign out</a
-                    >
+                      <ng-container *ngIf="userImage; else GuestImage">
+                        <img
+                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          alt=""
+                        />
+                      </ng-container>
+                      <ng-template #GuestImage>
+                        <span class="guest-image">
+                          <span class="guest-text">?</span>
+                        </span>
+                      </ng-template>
+                    </button>
+                  </div>
+                  <!-- TODO: x-transition from Alpine still needs to be ported to the user-options below. -->
+                  <div class="user-options" *ngIf="openedHorizontalUserPopout">
+                    <div class="options-container">
+                      <a
+                        routerLink="/profile"
+                        routerLinkActive="active"
+                        (click)="handleNavMenuClick()"
+                        >Your Profile</a
+                      >
+                      <a
+                        routerLink="/settings"
+                        routerLinkActive="active"
+                        (click)="handleNavMenuClick()"
+                        >Settings</a
+                      >
+                      <a routerLink="/" (click)="handleNavMenuClick()"
+                        >Sign out</a
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="hamburger">
+              <button
+                (click)="toggleVerticalMenu()"
+                [attr.aria-label]="
+                  openedVerticalMenu ? 'Close main menu' : 'Main menu'
+                "
+                [attr.aria-expanded]="openedVerticalMenu"
+              >
+                <svg stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path
+                    [class.hide]="openedVerticalMenu"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                  <path
+                    [class.hide]="!openedVerticalMenu"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
-          <div class="hamburger">
-            <button
-              (click)="toggleVerticalMenu()"
-              [attr.aria-label]="
-                openedVerticalMenu ? 'Close main menu' : 'Main menu'
-              "
-              [attr.aria-expanded]="openedVerticalMenu"
+        </div>
+      </div>
+      <div class="nav-vertical" [class.hide]="!openedVerticalMenu">
+        <div class="options route-links">
+          <a
+            routerLink="/home"
+            routerLinkActive="active"
+            (click)="handleNavMenuClick()"
+            >Home</a
+          >
+          <a
+            routerLink="/team"
+            routerLinkActive="active"
+            (click)="handleNavMenuClick()"
+            >Team</a
+          >
+          <a
+            routerLink="/projects"
+            routerLinkActive="active"
+            (click)="handleNavMenuClick()"
+            >Projects</a
+          >
+          <a
+            routerLink="/calendar"
+            routerLinkActive="active"
+            (click)="handleNavMenuClick()"
+            >Calendar</a
+          >
+          <a
+            routerLink="/reports"
+            routerLinkActive="active"
+            (click)="handleNavMenuClick()"
+            >Reports</a
+          >
+        </div>
+        <div class="user">
+          <div class="user-profile">
+            <div class="image">
+              <ng-container *ngIf="userImage; else GuestImage">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+              </ng-container>
+              <ng-template #GuestImage>
+                <span class="guest-image">
+                  <span class="guest-text">?</span>
+                </span>
+              </ng-template>
+            </div>
+            <div class="info">
+              <div class="name">Tom Cook</div>
+              <div class="email">tom@example.com</div>
+            </div>
+          </div>
+          <div
+            class="user-options route-links"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="user-menu"
+          >
+            <a
+              routerLink="/profile"
+              routerLinkActive="active"
+              role="menuitem"
+              (click)="handleNavMenuClick()"
+              >Your Profile</a
             >
-              <svg stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                <path
-                  [class.hide]="openedVerticalMenu"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-                <path
-                  [class.hide]="!openedVerticalMenu"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+            <a
+              routerLink="/settings"
+              routerLinkActive="active"
+              role="menuitem"
+              (click)="handleNavMenuClick()"
+              >Settings</a
+            >
+            <a routerLink="/" role="menuitem" (click)="handleNavMenuClick()"
+              >Sign out</a
+            >
           </div>
         </div>
       </div>
-    </div>
-    <div class="nav-vertical" [class.hide]="!openedVerticalMenu">
-      <div class="options route-links">
-        <a
-          routerLink="/home"
-          routerLinkActive="active"
-          (click)="handleNavMenuClick()"
-          >Home</a
-        >
-        <a
-          routerLink="/team"
-          routerLinkActive="active"
-          (click)="handleNavMenuClick()"
-          >Team</a
-        >
-        <a
-          routerLink="/projects"
-          routerLinkActive="active"
-          (click)="handleNavMenuClick()"
-          >Projects</a
-        >
-        <a
-          routerLink="/calendar"
-          routerLinkActive="active"
-          (click)="handleNavMenuClick()"
-          >Calendar</a
-        >
-        <a
-          routerLink="/reports"
-          routerLinkActive="active"
-          (click)="handleNavMenuClick()"
-          >Reports</a
-        >
+    </nav>
+    <header>
+      <div>
+        <h1>angular-nest-herokuapp</h1>
       </div>
-      <div class="user">
-        <div class="user-profile">
-          <div class="image">
-            <ng-container *ngIf="userImage; else GuestImage">
-              <img
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-            </ng-container>
-            <ng-template #GuestImage>
-              <span class="guest-image">
-                <span class="guest-text">?</span>
-              </span>
-            </ng-template>
-          </div>
-          <div class="info">
-            <div class="name">Tom Cook</div>
-            <div class="email">tom@example.com</div>
-          </div>
-        </div>
-        <div
-          class="user-options route-links"
-          role="menu"
-          aria-orientation="vertical"
-          aria-labelledby="user-menu"
-        >
-          <a
-            routerLink="/profile"
-            routerLinkActive="active"
-            role="menuitem"
-            (click)="handleNavMenuClick()"
-            >Your Profile</a
-          >
-          <a
-            routerLink="/settings"
-            routerLinkActive="active"
-            role="menuitem"
-            (click)="handleNavMenuClick()"
-            >Settings</a
-          >
-          <a routerLink="/" role="menuitem" (click)="handleNavMenuClick()"
-            >Sign out</a
-          >
-        </div>
-      </div>
-    </div>
-  </nav>
-  <header class="title">
-    <div class="title-padding">
-      <h1>angular-nest-herokuapp</h1>
-    </div>
-  </header>
-</div>
-<main class="route">
-  <div class="route-background">
-    <div class="route-foreground">
-      <router-outlet></router-outlet>
-    </div>
+    </header>
   </div>
-</main>
+  <main>
+    <div>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </main>
+</div>
+
+<angular-nest-herokuapp-footer></angular-nest-herokuapp-footer>

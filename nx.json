@@ -31,6 +31,9 @@
     },
     "api-interfaces": {
       "tags": []
+    },
+    "angular-nest-herokuapp-client": {
+      "tags": []
     }
   }
 }

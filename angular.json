@@ -218,6 +218,41 @@
           }
         }
       }
+    },
+    "angular-nest-herokuapp-client": {
+      "projectType": "library",
+      "root": "libs/angular-nest-herokuapp-client",
+      "sourceRoot": "libs/angular-nest-herokuapp-client/src",
+      "prefix": "angular-nest-herokuapp",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular-nest-herokuapp-client/tsconfig.lib.json",
+              "libs/angular-nest-herokuapp-client/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/angular-nest-herokuapp-client/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular-nest-herokuapp-client/jest.config.js",
+            "tsConfig": "libs/angular-nest-herokuapp-client/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular-nest-herokuapp-client/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

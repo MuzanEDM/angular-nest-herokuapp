@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FooterModule } from '@angular-nest-herokuapp/angular-nest-herokuapp-client/footer';
 
 import { AppComponent } from './app.component';
 
@@ -28,7 +29,8 @@ import { AppComponent } from './app.component';
             m => m.NotFoundModule
           )
       }
-    ])
+    ]),
+    FooterModule
   ],
   bootstrap: [AppComponent]
 })
