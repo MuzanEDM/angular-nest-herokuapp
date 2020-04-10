@@ -1,5 +1,2 @@
-<h1>Welcome to angular-nest-herokuapp!</h1>
-<h2>There is nothing at this URL!</h2>
-<button routerLink="/">Home</button>
-<img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"/>
-<div>Message: {{ hello$ | async | json }}</div>
+<img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" />
+<p>{{ (hello$ | async)?.message }}</p>

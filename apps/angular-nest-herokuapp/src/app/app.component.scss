@@ -1,0 +1,312 @@
+// Top-level class that is used between both the horizontal
+// and vertical navigation menus.
+.route-links {
+  > a {
+    @apply mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300;
+
+    &:first-child {
+      @apply mt-0;
+    }
+    &:hover {
+      @apply text-white bg-gray-700;
+    }
+    &:focus {
+      @apply outline-none text-white bg-gray-700;
+    }
+    &.active,
+    &.active:focus {
+      @apply outline-none text-white bg-gray-900;
+    }
+  }
+}
+
+// Top-level class that is used between both the horizontal
+// and vertical navigation menus. This is the gray circle
+// with the question mark in the center.
+span.guest-image {
+  @apply inline-flex items-center justify-center bg-gray-400;
+
+  span.guest-text {
+    @apply text-xl font-medium leading-none text-white;
+  }
+}
+
+:host {
+  @apply block bg-gray-100 min-h-screen;
+}
+div.header {
+  @apply bg-gray-800 pb-32;
+
+  nav.header-nav {
+    @apply bg-gray-800;
+
+    div.nav-horizontal {
+      @apply max-w-7xl mx-auto;
+
+      div.horizontal-wrapper {
+        @apply border-b border-gray-700;
+
+        div.horizontal-container {
+          @apply flex items-center justify-between h-16 px-4;
+
+          .horizontal-nav {
+            @apply flex items-center;
+
+            div.logo {
+              @apply flex-shrink-0;
+
+              > img {
+                @apply h-8 w-8;
+              }
+            }
+            div.options {
+              @apply hidden;
+
+              div.options-container {
+                @apply ml-10 flex items-baseline;
+
+                > a {
+                  @apply text-sm ml-4 mt-0;
+
+                  &:first-child {
+                    @apply ml-0;
+                  }
+                }
+              }
+            }
+          }
+          .horizontal-user {
+            @apply hidden;
+
+            .horizontal-user-container {
+              @apply ml-4 flex items-center;
+
+              button.notifications {
+                @apply p-1 border-2 border-transparent text-gray-400 rounded-full;
+
+                svg {
+                  @apply h-6 w-6;
+                }
+                &:hover {
+                  @apply text-white;
+                }
+                &:focus {
+                  @apply outline-none text-white bg-gray-700;
+                }
+              }
+              div.user {
+                @apply ml-3 relative;
+
+                div.profile-photo {
+                  button {
+                    @apply max-w-xs flex items-center text-sm rounded-full text-white;
+
+                    > * {
+                      @apply h-8 w-8 rounded-full;
+                    }
+                    &:focus {
+                      @apply outline-none shadow-solid;
+                    }
+                    span.guest-image {
+                      @apply inline-flex items-center justify-center bg-gray-400;
+
+                      span.guest-text {
+                        @apply text-xl font-medium leading-none text-white;
+                      }
+                    }
+                  }
+                }
+                div.user-options {
+                  @apply origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg;
+
+                  div.options-container {
+                    @apply py-1 rounded-md bg-white shadow-xs;
+
+                    a {
+                      @apply block px-4 py-2 text-sm text-gray-700;
+
+                      &:hover {
+                        @apply bg-gray-100;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .hamburger {
+            @apply -mr-2 flex;
+
+            > button {
+              @apply inline-flex items-center justify-center p-2 rounded-md text-gray-400;
+
+              > svg {
+                @apply h-6 w-6;
+
+                > path {
+                  @apply inline-flex;
+
+                  &.hide {
+                    @apply hidden;
+                  }
+                }
+              }
+              &:hover {
+                @apply text-white bg-gray-700;
+              }
+              &:focus {
+                @apply outline-none bg-gray-700 text-white;
+              }
+            }
+          }
+        }
+      }
+    }
+    div.nav-vertical {
+      @apply border-b border-gray-700;
+
+      div.options {
+        @apply px-2 py-3;
+      }
+      div.user {
+        @apply pt-4 pb-3 border-t border-gray-700;
+
+        div.user-profile {
+          @apply flex items-center px-5;
+
+          div.image {
+            @apply flex-shrink-0;
+
+            > * {
+              @apply h-10 w-10 rounded-full;
+            }
+          }
+          div.info {
+            @apply ml-3;
+
+            div.name {
+              @apply text-base font-medium leading-none text-white;
+            }
+            div.email {
+              @apply mt-1 text-sm font-medium leading-none text-gray-400;
+            }
+          }
+        }
+        div.user-options {
+          @apply mt-3 px-2;
+        }
+      }
+      &.hide {
+        @apply hidden;
+      }
+    }
+  }
+  header.title {
+    @apply py-10;
+
+    div.title-padding {
+      @apply max-w-7xl mx-auto px-4;
+
+      h1 {
+        @apply text-3xl leading-9 font-bold text-white;
+      }
+    }
+  }
+}
+main.route {
+  @apply -mt-32;
+
+  div.route-background {
+    @apply max-w-7xl mx-auto pb-12 px-4;
+
+    div.route-foreground {
+      @apply bg-white rounded-lg shadow px-5 py-6;
+    }
+  }
+}
+
+@screen sm {
+  div.header {
+    nav.header-nav {
+      div.nav-horizontal {
+        @apply px-6;
+
+        div.horizontal-wrapper {
+          div.horizontal-container {
+            @apply px-0;
+          }
+        }
+      }
+      div.nav-vertical {
+        div.options {
+          @apply px-3;
+        }
+      }
+    }
+    header.title {
+      div.title-padding {
+        @apply px-6;
+      }
+    }
+  }
+  main.route {
+    div.route-background {
+      @apply px-6;
+
+      div.route-foreground {
+        @apply px-6;
+      }
+    }
+  }
+}
+
+@screen md {
+  div.header {
+    nav.header-nav {
+      div.nav-horizontal {
+        div.horizontal-wrapper {
+          div.horizontal-container {
+            .horizontal-nav {
+              div.options {
+                @apply block;
+              }
+            }
+            .horizontal-user {
+              @apply block;
+
+              .horizontal-user-container {
+                @apply ml-6;
+              }
+            }
+            div.hamburger {
+              @apply hidden;
+            }
+          }
+        }
+      }
+      div.nav-vertical {
+        @apply hidden;
+      }
+    }
+  }
+}
+
+@screen lg {
+  div.header {
+    nav.header-nav {
+      div.nav-horizontal {
+        @apply px-8;
+      }
+    }
+    header.title {
+      div.title-padding {
+        @apply px-8;
+      }
+    }
+  }
+  main.route {
+    div.route-background {
+      @apply px-8;
+    }
+  }
+}
