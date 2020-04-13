@@ -1,7 +1,7 @@
 <div class="fullscreen-container">
   <div class="header">
     <nav>
-      <div class="nav-horizontal">
+      <div id="nav-horizontal">
         <div class="horizontal-wrapper">
           <div class="horizontal-container">
             <div class="horizontal-nav">
@@ -59,8 +59,16 @@
                       </ng-template>
                     </button>
                   </div>
-                  <!-- TODO: x-transition from Alpine still needs to be ported to the user-options below. -->
-                  <div class="user-options" *ngIf="openedHorizontalUserPopout">
+                  <div
+                    class="user-options"
+                    *ngTransition="openedHorizontalUserPopout"
+                    ngTransitionEnter="enter"
+                    ngTransitionEnterStart="hidden"
+                    ngTransitionEnterEnd="showing"
+                    ngTransitionLeave="leave"
+                    ngTransitionLeaveStart="showing"
+                    ngTransitionLeaveEnd="hidden"
+                  >
                     <div class="options-container">
                       <a
                         routerLink="/profile"
@@ -82,7 +90,7 @@
                 </div>
               </div>
             </div>
-            <div class="hamburger">
+            <div id="hamburger">
               <button
                 (click)="toggleVerticalMenu()"
                 [attr.aria-label]="
@@ -111,7 +119,7 @@
           </div>
         </div>
       </div>
-      <div class="nav-vertical" [class.hide]="!openedVerticalMenu">
+      <div id="nav-vertical" [class.hide]="!openedVerticalMenu">
         <div class="options route-links">
           <a
             routerLink="/home"

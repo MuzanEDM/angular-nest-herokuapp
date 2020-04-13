@@ -7373,6 +7373,16 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+ng-refs@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/ng-refs/-/ng-refs-0.3.1.tgz#794816015f6332a7cf465de1f51e225841748650"
+  integrity sha512-zYZZqwGOZpo8IuEzDXifu7DehqiTEadrw6CEin8KubWvvxno/ES8k95lDaB7zOc+GD9565S8Stx/8C3ItPO1tQ==
+
+ng-transition@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/ng-transition/-/ng-transition-0.0.1.tgz#47338ff07c9f011565a4b12a0a9c8ca920de0018"
+  integrity sha512-sj8OB0V3eFwza/2k04ryGJ041CFb23EHAJKviwrWCRLqfqWjzSLsr+j8idDndXBa7Fe0hKd1aI/C/duSz72Z4A==
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
